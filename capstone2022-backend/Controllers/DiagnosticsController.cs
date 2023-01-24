@@ -5,73 +5,70 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace capstone2022_backend.Controllers
 {
-	public class DiagnosticsController
-	{
-        [ApiController]
-        [Route("api/[controller]")]
-        public class DiagnosticController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class DiagnosticController : Controller
+    {
+        private readonly DiagnosticsService _diagnosticsService;
+
+        public DiagnosticController(DiagnosticsService diagnosticsService) =>
+            _diagnosticsService = diagnosticsService;
+
+        [HttpGet]
+        public async Task<List<Diagnostics>> Get() =>
+            await _diagnosticsService.GetAsync();
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Diagnostics>> Get(string id)
         {
-            private readonly DiagnosticsService _diagnosticService;
+            var diagnostics = await _diagnosticsService.GetAsync(id);
 
-            public DiagnosticController(DiagnosticsService diagnosticService) =>
-                _diagnosticService = diagnosticService;
-
-            [HttpGet]
-            public async Task<List<Diagnostics>> Get() =>
-                await _diagnosticService.GetAsync();
-
-            [HttpGet("{id}")]
-            public async Task<ActionResult<Diagnostics>> Get(string id)
+            if (diagnostics is null)
             {
-                var diagnostic = await _diagnosticService.GetAsync(id);
-
-                if (diagnostic is null)
-                {
-                    return NotFound();
-                }
-
-                return diagnostic;
+                return NotFound();
             }
 
-            [HttpPost]
-            public async Task<IActionResult> Post(Diagnostics newDiagnostic)
-            {
-                await _diagnosticService.CreateAsync(newDiagnostic);
+            return diagnostics;
+        }
 
-                return CreatedAtAction(nameof(Get), new { id = newDiagnostic.Id }, newDiagnostic);
+        [HttpPost]
+        public async Task<IActionResult> Post(Diagnostics newDiagnostic)
+        {
+            await _diagnosticsService.CreateAsync(newDiagnostic);
+
+            return CreatedAtAction(nameof(Get), new { id = newDiagnostic.Id }, newDiagnostic);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(string id, Diagnostics updatedDiagnostic)
+        {
+            var diagnostics = await _diagnosticsService.GetAsync(id);
+
+            if (diagnostics is null)
+            {
+                return NotFound();
             }
 
-            [HttpPut("{id}")]
-            public async Task<IActionResult> Update(string id, Diagnostics updatedDiagnostic)
+            updatedDiagnostic.Id = diagnostics.Id;
+
+            await _diagnosticsService.UpdateAsync(id, updatedDiagnostic);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var diagnostics = await _diagnosticsService.GetAsync(id);
+
+            if (diagnostics is null)
             {
-                var diagnostic = await _diagnosticService.GetAsync(id);
-
-                if (diagnostic is null)
-                {
-                    return NotFound();
-                }
-
-                updatedDiagnostic.Id = diagnostic.Id;
-
-                await _diagnosticService.UpdateAsync(id, updatedDiagnostic);
-
-                return NoContent();
+                return NotFound();
             }
 
-            [HttpDelete("{id}")]
-            public async Task<IActionResult> Delete(string id)
-            {
-                var diagnostic = await _diagnosticService.GetAsync(id);
+            await _diagnosticsService.RemoveAsync(id);
 
-                if (diagnostic is null)
-                {
-                    return NotFound();
-                }
-
-                await _diagnosticService.RemoveAsync(id);
-
-                return NoContent();
-            }
+            return NoContent();
         }
     }
 }
