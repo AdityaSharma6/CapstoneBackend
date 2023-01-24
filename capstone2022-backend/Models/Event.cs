@@ -1,19 +1,27 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace capstone2022_backend.Models
 {
 	public class Event
 	{
-		public Guid Guid { get; set; }
+        [BsonId]
+        public string Id { get; set; }
 
-		public Patient Patient { get; set; }
+        [BsonElement("patientId")]
+        public string PatientId { get; set; }
 
-		public Doctor Doctor { get; set; }
+        [BsonElement("doctorId")]
+        public string DoctorId { get; set; }
 
-		public string DoctorNotes { get; set; }
+        [BsonElement("doctorNotes")]
+        public string DoctorNotes { get; set; }
 
-		public string PatientNotes { get; set; }
+        [BsonElement("patientNotes")]
+        public string PatientNotes { get; set; }
 
-		public List<Diagnostics> ListOfDiagnostics { get; set; }
+        [BsonElement("listOfDiagnostics")]
+        public List<string> ListOfDiagnostics { get; set; }
 
 	}
 }
