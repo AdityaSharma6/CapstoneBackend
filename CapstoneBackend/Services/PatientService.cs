@@ -1,19 +1,24 @@
-﻿using capstone2022_backend.Models;
+﻿using CapstoneBackend.Models;
 using Microsoft.Extensions.Options;
 using System;
 using MongoDB.Driver;
 
-namespace capstone2022_backend.Services
+namespace CapstoneBackend.Services
 {
 	public class PatientService
 	{
         private readonly IMongoCollection<Patient> _patientCollection;
 
+        private readonly IConfiguration _config;
+
         public PatientService(
-            IOptions<DatabaseSettings> DatabaseSettings)
+            IOptions<DatabaseSettings> DatabaseSettings, IConfiguration config)
         {
+            _config = config;
+            string connectionString = _config["ConnectionString"];
+
             var mongoClient = new MongoClient(
-                DatabaseSettings.Value.ConnectionString);
+                connectionString);
 
             var mongoDatabase = mongoClient.GetDatabase(
                 DatabaseSettings.Value.DatabaseName);

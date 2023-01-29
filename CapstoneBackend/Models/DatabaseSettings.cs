@@ -1,5 +1,5 @@
 ﻿using System;
-namespace capstone2022_backend.Models
+namespace CapstoneBackend.Models
 {
 	public class DatabaseSettings
 	{

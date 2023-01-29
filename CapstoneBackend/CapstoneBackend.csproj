@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>capstone2022_backend</RootNamespace>
     <UserSecretsId>4a8e7805-ee41-4280-bbf5-a9f56d00b9f3</UserSecretsId>
+    <AssemblyName>capstone2022-backend</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
@@ -14,12 +15,14 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="MongoDB.Driver" />
     <None Remove="Services\" />
+    <None Remove="Microsoft.Extensions.Configuration.UserSecrets" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
