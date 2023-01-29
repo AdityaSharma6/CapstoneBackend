@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using capstone2022_backend.Services;
-using capstone2022_backend.Models;
+using CapstoneBackend.Services;
+using CapstoneBackend.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace capstone2022_backend.Controllers
+namespace CapstoneBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

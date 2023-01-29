@@ -1,9 +1,9 @@
 ﻿using System;
-using capstone2022_backend.Models;
-using capstone2022_backend.Services;
+using CapstoneBackend.Models;
+using CapstoneBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace capstone2022_backend.Controllers
+namespace CapstoneBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

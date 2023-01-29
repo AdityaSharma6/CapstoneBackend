@@ -1,10 +1,11 @@
 ﻿using System;
-using capstone2022_backend.Models;
-using capstone2022_backend.Services;
+using System.Reflection;
+using CapstoneBackend.Models;
+using CapstoneBackend.Services;
 using MongoDB.Driver;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace capstone2022_backend
+namespace CapstoneBackend
 {
     class Program
     {
@@ -14,6 +15,7 @@ namespace capstone2022_backend
 
             // Add services to the container.
             builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("CapstoneDatabase"));
+            builder.Services.Configure<Secrets>(builder.Configuration.GetSection("ConnectionString"));
             builder.Services.AddSingleton<PatientService>();
 
             builder.Services.AddControllers();
@@ -28,6 +30,7 @@ namespace capstone2022_backend
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                builder.Configuration.AddUserSecrets<Program>();
             }
 
             app.UseHttpsRedirection();

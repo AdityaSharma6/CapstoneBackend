@@ -2,7 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace capstone2022_backend.Models
+namespace CapstoneBackend.Models
 {
 	public class Person
 	{

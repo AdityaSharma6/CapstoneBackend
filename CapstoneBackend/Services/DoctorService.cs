@@ -1,9 +1,9 @@
-﻿using capstone2022_backend.Models;
+﻿using CapstoneBackend.Models;
 using Microsoft.Extensions.Options;
 using System;
 using MongoDB.Driver;
 
-namespace capstone2022_backend.Services
+namespace CapstoneBackend.Services
 {
 	public class DoctorService
 	{
