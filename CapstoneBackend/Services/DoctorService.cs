@@ -9,11 +9,16 @@ namespace CapstoneBackend.Services
 	{
         private readonly IMongoCollection<Doctor> _doctorCollection;
 
+        private readonly IConfiguration _config;
+
         public DoctorService(
-            IOptions<DatabaseSettings> DatabaseSettings)
+            IOptions<DatabaseSettings> DatabaseSettings, IConfiguration config)
         {
+            _config = config;
+            string connectionString = _config["ConnectionString"];
+
             var mongoClient = new MongoClient(
-                DatabaseSettings.Value.ConnectionString);
+                connectionString);
 
             var mongoDatabase = mongoClient.GetDatabase(
                 DatabaseSettings.Value.DatabaseName);
