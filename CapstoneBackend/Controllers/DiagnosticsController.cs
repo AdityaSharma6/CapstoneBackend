@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CapstoneBackend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Diagnostic")]
     public class DiagnosticController : Controller
     {
         private readonly DiagnosticsService _diagnosticsService;

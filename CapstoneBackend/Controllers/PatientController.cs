@@ -11,7 +11,7 @@ using CapstoneBackend.Models;
 namespace CapstoneBackend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Patient")]
     public class PatientController : Controller
     {
         private readonly PatientService _patientService;

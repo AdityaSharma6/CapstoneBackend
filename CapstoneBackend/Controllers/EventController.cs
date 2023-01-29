@@ -9,7 +9,7 @@ using CapstoneBackend.Models;
 namespace CapstoneBackend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Event")]
     public class EventController : Controller
     {
         private readonly EventService _eventEntityService;
