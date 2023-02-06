@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1704.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capstone2022-backend", "capstone2022-backend\capstone2022-backend.csproj", "{565D876C-AAE4-4496-87C7-D342C8C3A628}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapstoneBackend", "CapstoneBackend.csproj", "{DC548F27-7BF1-4F1F-B042-35A66800C4F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{565D876C-AAE4-4496-87C7-D342C8C3A628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{565D876C-AAE4-4496-87C7-D342C8C3A628}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{565D876C-AAE4-4496-87C7-D342C8C3A628}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{565D876C-AAE4-4496-87C7-D342C8C3A628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC548F27-7BF1-4F1F-B042-35A66800C4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC548F27-7BF1-4F1F-B042-35A66800C4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC548F27-7BF1-4F1F-B042-35A66800C4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC548F27-7BF1-4F1F-B042-35A66800C4F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {10DBBD4F-2E02-4B69-81A1-D819837A6FDA}
+		SolutionGuid = {DCC416E6-5779-4038-89D3-1F46921B10B1}
 	EndGlobalSection
 EndGlobal
